@@ -17,17 +17,17 @@ function init() {
     $(orgNameInput).autocomplete({
       source: function (request, response) {
         $.ajax({
-          url: "https://orgbook.gov.bc.ca/api/v3/search/autocomplete",
+          url: 'https://orgbook.gov.bc.ca/api/v3/search/autocomplete',
           data: {
-            q: request.term
+            q: request.term,
           },
           success: function (data) {
             var results = data.total ? data.results : [];
             response(results);
-          }
+          },
         });
       },
-      minLength: 2
+      minLength: 2,
     });
   } catch (e) {
     console.error('Unable to initialize autocomplete', e);
